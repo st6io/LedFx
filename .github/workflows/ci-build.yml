@@ -72,9 +72,3 @@ jobs:
       - name: Check LedFx launches
         run: |
           poetry run ledfx --ci-smoke-test -vv -c debug_config --offline
-      - name: Attach LedFx test log
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: ledfx-log-${{ runner.os }}-${{ runner.arch }}-py${{ matrix.python }}.log
-          path: ${{ github.workspace }}/debug_config/ledfx.log
